@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clock V2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Montserrat:wght@400;700;900&family=JetBrains+Mono:wght@400;800&family=Comfortaa:wght@400;700&family=Russo+One&family=Press+Start+2P&family=Bebas+Neue&family=Marck+Script&family=Unbounded:wght@400;900&family=Noto+Sans+SC:wght@400;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-bg="liquid">
+<div class="bg" aria-hidden="true"><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i></div>
+<canvas id="pc" aria-hidden="true"></canvas>
+
+<div class="tools">
+  <button class="ib glass" id="bInfo" aria-label="What's new"><img src="images/icons/info.svg" alt="" width="22" height="22"></button>
+  <button class="ib glass" id="bFs" aria-label="Fullscreen"><img src="images/icons/fullscreen.svg" alt="" width="22" height="22"></button>
+  <button class="ib glass" id="bSet" aria-label="Settings"><img src="images/icons/settings.svg" alt="" width="22" height="22"></button>
+</div>
+
+<main class="card glass" id="card">
+  <section class="view on" id="v-clock">
+    <div id="clock">00:00:00</div>
+    <div id="date">...</div>
+    <div id="prog"><div class="bar"><i id="pbar"></i></div><span id="ptxt"></span></div>
+    <div class="world" id="world"></div>
+  </section>
+  <section class="view" id="v-sw">
+    <div class="big" id="swt">00:00.00</div>
+    <div class="btns"><button class="gb main" id="swGo"></button><button class="gb" id="swLap" data-t="lap"></button><button class="gb" id="swRs" data-t="rs"></button></div>
+    <ol id="laps"></ol>
+  </section>
+  <section class="view" id="v-tm">
+    <div class="big" id="tmt">05:00</div>
+    <div class="bar"><i id="tmbar" style="transform:scaleX(1)"></i></div>
+    <div class="chips"><button class="gb sm" data-m="1">1</button><button class="gb sm" data-m="5">5</button><button class="gb sm" data-m="10">10</button><button class="gb sm" data-m="25">25</button><input id="tmin" type="number" min="1" max="999" value="5" aria-label="Minutes"></div>
+    <div class="btns"><button class="gb main" id="tmGo"></button><button class="gb" id="tmRs" data-t="rs"></button></div>
+  </section>
+</main>
+
+<nav class="dock glass">
+  <button class="tab on" data-mode="clock" data-t="m_clock"></button>
+  <button class="tab" data-mode="sw" data-t="m_sw"></button>
+  <button class="tab" data-mode="tm" data-t="m_tm"></button>
+</nav>
+
+<aside class="panel glass" id="panel" aria-label="Settings"></aside>
+
+<div class="ov hide" id="ovLang" style="z-index:3000"><div class="wc glass">
+  <h3>SELECT LANGUAGE</h3><div class="lgrid" id="lgrid"></div></div></div>
+<div class="ov hide" id="ovNew"><div class="wc glass">
+  <button class="x" id="xNew" aria-label="Close">&times;</button>
+  <h3>CLOCK V2.0</h3><h4 id="wl"></h4><div id="cl"></div><p class="rel" id="rel"></p></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
